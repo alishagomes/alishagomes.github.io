@@ -1,0 +1,284 @@
+/* Import fonts from Google */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap');
+
+/* All elements styling */
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    font-family: "Inconsolata", monospace;
+}
+
+/* Setting variables for background color, text color, and other main detailing color */
+:root {
+    --bg-color: #f3f3f3; 
+    --text-color: #003049;
+    --main-color: #ff0054;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Navbar fixed position, vertically positioned at the middle of the browser */
+.navbar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    top: 50vh;
+    transform: translateY(-50%);
+    padding: 1.2rem; 
+}
+
+.navbar a {
+    position: relative; 
+    display: inline-block; 
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    transition: color 0.3s; 
+}
+
+/* Underline effect for navbar */
+.navbar a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 0.1rem;
+    width: 0;
+    left: 0;
+    bottom: -0.4rem;
+    background: var(--main-color); 
+    transition: width 0.3s ease; 
+}
+
+.navbar a:hover::after, 
+.navbar a.active::after {
+    width: 100%;
+}
+
+/* Added padding from top of browser to logo */
+#about {
+    padding-top: 20vh;
+}
+
+p {
+    line-height: 1.3; 
+    padding-bottom: 1em;
+    font-size: 1.2rem;
+}
+
+/* All content in sections fit 50% of the width of the browser */
+.main-container {
+    max-width: 50%;
+    margin: auto;
+}
+
+/* Padding below heading and content*/
+section h2 {
+    padding-bottom: 1rem;
+}
+
+/* Padding for all sections */
+section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+/* AliSHA-256 logo */
+.logo {
+    font-size: 11rem;
+    color: var(--text-color);
+    font-family: "Reenie Beanie", cursive;
+}
+
+/* Display social media on the screen */
+.socials-container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 4rem;
+    right: 3.3rem;
+    gap: 30px;
+}
+
+.socials-container a {
+    display: flex;
+    justify-content: center;
+}
+
+.socials-container a svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: var(--text-color);
+    transition: fill 0.8s ease;
+}
+
+.socials-container a:hover svg {
+    fill: var(--main-color);
+}
+
+/* For experience section */
+.experience-item {
+    display: flex;
+    width: 100%;
+ 
+}
+
+.experience-left {
+    flex: 1;
+    font-weight: bold;
+   
+}
+
+.experience-right {
+    flex: 2;
+    display: flex;
+    align-items: center;
+}
+
+  .company-logo {
+    width: 40px; 
+    height: auto; 
+    vertical-align: middle; 
+    border-radius: 10px;
+    margin-right: 10px; 
+}
+
+/* Added extra padding below play section */
+#play {
+    padding-bottom: 10rem;
+}
+
+/* Writing*/
+.writing-list {
+    list-style-type: circle;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+}
+
+.writing-list li {
+    margin-bottom: 1rem;
+}
+
+.fancy-link {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.fancy-link:hover span {
+    text-decoration: underline;
+    color: var(--text-color);
+}
+
+.fancy-link::after {
+    content: '↗'; 
+    margin-left: 0.8rem;
+    color: var(--text-color);
+}
+
+/* Projects section */
+.project-container {
+    display: flex; 
+    flex-direction: column; 
+    padding: 0;
+}
+
+.project-item {
+    margin-bottom: 1rem;
+}
+
+.divider {
+    height: 1px;
+    border-top: 1px dashed var(--text-color); 
+    padding-bottom: 1rem;
+    
+}
+
+.tags {
+    margin-top: 1rem;
+}
+
+.tag {
+    display: inline-block; 
+    border-radius: 10px;
+    padding: 0.5em 0.9em;
+    margin-right: 1rem; 
+    margin-bottom: 1rem; 
+    font-size: 0.8rem; 
+    font-weight: bold; 
+    color: var(--text-color);
+    color: var(--text-color);
+}
+
+/* Different colors for tags */
+#type {
+    background-color: #FFBD00;
+}
+
+#role {
+    background-color: #AFBF7E; 
+}
+
+#skills{
+    background-color: #94BFA7; 
+}
+
+/* From https://sharkcoder.com/visual/underline */
+.fun-underline{
+    text-decoration: none;
+    box-shadow: inset 0 -2px 0 #94BFA7, 0 2px 0 #94BFA7;
+    transition: box-shadow .3s;
+    color: inherit;
+    overflow: hidden;
+  }
+  
+.fun-underline:hover {
+    box-shadow: inset 0 -20px 0 #94BFA7, 0 2px 0 #94BFA7;
+  }
+
+
+/* Media queries */
+@media (max-width: 1440px) {
+    /* Display experiences in one column*/
+    .experience-item {
+        flex-direction: column;
+    }
+    .logo {
+        font-size: 7rem;
+    }
+    #about {
+        padding-top: 10vh;
+    }
+}
+
+@media (max-width: 800px) {
+    /* Display experiences in one column*/
+    .experience-item {
+        flex-direction: column;
+    }
+    .logo {
+        font-size: 4.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Display experiences in one column*/
+    .experience-item {
+        flex-direction: column;
+    }
+    .logo {
+        font-size: 4.5rem;
+    }
+
+    .navbar {
+        display: none;
+    }
+}
